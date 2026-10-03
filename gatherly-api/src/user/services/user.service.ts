@@ -3,9 +3,9 @@ import { ConflictException, Inject, Injectable } from '@nestjs/common';
 import {
   PASSWORD_HASHER,
   type PasswordHasher,
-} from '../auth/hasher/password-hasher.js';
-import { CreateUserDTO } from './dto/create-user.dto.js';
-import { UserRepository } from './repository/user.repository.js';
+} from '../../auth/hasher/password-hasher.js';
+import { CreateUserDTO } from '../dto/create-user.dto.js';
+import { UserRepository } from '../repositories/user.repository.js';
 
 @Injectable()
 export class UserService {
