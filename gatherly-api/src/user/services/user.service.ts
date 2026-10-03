@@ -115,5 +115,11 @@ export class UserService {
       throw err;
     }
   }
+
+  async remove(id: string): Promise<void> {
+    const user = await this.userRepository.delete(id);
+
+    if (!user) throw new NotFoundException('Usuário não encontrado');
+  }
   //#endregion
 }
