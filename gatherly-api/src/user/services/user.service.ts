@@ -5,7 +5,7 @@ import {
   type PasswordHasher,
 } from '../auth/hasher/password-hasher.js';
 import { CreateUserDTO } from './dto/create-user.dto.js';
-import { UserRepository } from './user.repository.js';
+import { UserRepository } from './repository/user.repository.js';
 
 @Injectable()
 export class UserService {
