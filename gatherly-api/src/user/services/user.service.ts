@@ -8,7 +8,8 @@ import {
 import {
   PASSWORD_HASHER,
   type PasswordHasher,
-} from '../../auth/hasher/password-hasher.js';
+} from '../../security/hasher/password-hasher.js';
+
 import { CreateUserDTO } from '../dto/create-user.dto.js';
 import { UpdateUserDto } from '../dto/update-user.dto.js';
 import { UserRepository } from '../repositories/user.repository.js';

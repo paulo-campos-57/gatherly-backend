@@ -40,6 +40,12 @@ export class User {
   username: string;
 
   @Prop({
+    required: true,
+    select: false,
+  })
+  password: string;
+
+  @Prop({
     type: String,
     default: null,
   })

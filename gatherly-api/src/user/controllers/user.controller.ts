@@ -9,11 +9,17 @@ import {
   ParseUUIDPipe,
   Patch,
   Post,
+  Request,
+  UseGuards,
 } from '@nestjs/common';
 
 import { UserService } from '../services/user.service.js';
 import { CreateUserDTO } from '../dto/create-user.dto.js';
 import { UpdateUserDto } from '../dto/update-user.dto.js';
+
+import { AuthenticatedUser } from '../../auth/types/authenticated-user.type.js';
+
+import { JwtAuthGuard } from '../../auth/guards/jwt-auth.guard.js';
 
 @Controller('users')
 export class UserController {
@@ -22,6 +28,12 @@ export class UserController {
   @Post()
   create(@Body() dto: CreateUserDTO) {
     return this.userService.create(dto);
+  }
+
+  @Get('me')
+  @UseGuards(JwtAuthGuard)
+  getMe(@Request() request: { user: AuthenticatedUser }) {
+    return request.user;
   }
 
   @Get()

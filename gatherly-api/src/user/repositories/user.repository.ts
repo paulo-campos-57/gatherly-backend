@@ -20,7 +20,7 @@ export class UserRepository {
 
   async findByEmail(email: string): Promise<UserDocument | null> {
     return this.userModel
-      .findOne({ email: email.toLowerCase() })
+      .findOne({ email: email.trim().toLowerCase() })
       .select('+password')
       .exec();
   }

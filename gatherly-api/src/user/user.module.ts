@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import { AuthModule } from '../auth/auth.module.js';
+import { PasswordModule } from '../security/hasher/password.module.js';
 
 import { User, UserSchema } from './schemas/user.schema.js';
 import { UserRepository } from './repositories/user.repository.js';
@@ -10,7 +10,7 @@ import { UserController } from './controllers/user.controller.js';
 
 @Module({
   imports: [
-    AuthModule,
+    PasswordModule,
 
     MongooseModule.forFeature([
       {
