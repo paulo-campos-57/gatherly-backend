@@ -9,6 +9,7 @@ import {
   ParseUUIDPipe,
   Patch,
   Post,
+  Query,
   Request,
   UseGuards,
 } from '@nestjs/common';
@@ -16,6 +17,7 @@ import {
 import { UserService } from '../services/user.service.js';
 import { CreateUserDTO } from '../dto/create-user.dto.js';
 import { UpdateUserDto } from '../dto/update-user.dto.js';
+import { SearchUserDto } from '../dto/search-user.dto.js';
 
 import { AuthenticatedUser } from '../../auth/types/authenticated-user.type.js';
 
@@ -30,15 +32,20 @@ export class UserController {
     return this.userService.create(dto);
   }
 
+  @Get()
+  findAll() {
+    return this.userService.findAll();
+  }
+
+  @Get('search')
+  search(@Query() dto: SearchUserDto) {
+    return this.userService.search(dto.query);
+  }
+
   @Get('me')
   @UseGuards(JwtAuthGuard)
   getMe(@Request() request: { user: AuthenticatedUser }) {
     return request.user;
-  }
-
-  @Get()
-  findAll() {
-    return this.userService.findAll();
   }
 
   @Get(':id')

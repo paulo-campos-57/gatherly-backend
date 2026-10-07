@@ -122,5 +122,11 @@ export class UserService {
 
     if (!user) throw new NotFoundException('Usuário não encontrado');
   }
+
+  async search(query: string) {
+    const users = await this.userRepository.search(query);
+
+    return users.map((u) => this.toResponse(u));
+  }
   //#endregion
 }

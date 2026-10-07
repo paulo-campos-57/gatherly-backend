@@ -37,6 +37,26 @@ export class UserRepository {
     return this.userModel.find().exec();
   }
 
+  async search(query: string): Promise<UserDocument[]> {
+    const normalizedQuery = query.trim();
+    const escapedQuery = normalizedQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+    const exactQuery = normalizedQuery.toLowerCase();
+    const nameSearch = new RegExp(escapedQuery, 'i');
+
+    return this.userModel
+      .find({
+        $or: [
+          { id: normalizedQuery },
+          { email: exactQuery },
+          { username: exactQuery },
+          { name: { $regex: nameSearch } },
+        ],
+      })
+      .sort({ createdAt: -1 })
+      .exec();
+  }
+
   async update(id: string, data: UpdateUserDto): Promise<UserDocument | null> {
     return this.userModel
       .findOneAndUpdate(
