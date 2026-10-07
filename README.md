@@ -46,7 +46,7 @@ gatherly-api/src/
 - Register new controllers, providers, imports, or exports in the owning feature's module. Add a dependency to `common/` only when it is genuinely shared; keep reusable security utilities in `security/`.
 - Add a new architectural layer only when the feature requires a distinct responsibility. Keep the existing modular structure; do not introduce layers such as entities, ports, adapters, or use cases by default.
 
-## Tests
+## 🧪 Tests
 
 Tests are kept outside the production layer and centralized in `test/`. This keeps `src/` focused on application code and clearly separates unit, integration, and E2E tests from shared test resources:
 
@@ -184,7 +184,7 @@ gatherly-api/src/
 - Registre novos controllers, providers, imports ou exports no módulo responsável. Use `common/` somente para algo realmente compartilhado; mantenha utilitários de segurança reutilizáveis em `security/`.
 - Adicione uma camada arquitetural somente quando a funcionalidade exigir uma responsabilidade distinta. Preserve a estrutura modular existente; não introduza, por padrão, camadas como entities, ports, adapters ou use cases.
 
-## Testes
+## 🧪 Testes
 
 Os testes ficam fora da camada de produção e são centralizados em `test/`. Assim, `src/` permanece focado no código da aplicação, enquanto os testes unitários, de integração e E2E ficam claramente separados dos recursos compartilhados de teste:
 
