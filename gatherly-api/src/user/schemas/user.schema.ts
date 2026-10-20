@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { randomUUID } from 'node:crypto';
-import { HydratedDocument } from 'mongoose';
+import type { HydratedDocument } from 'mongoose';
 
 export type UserDocument = HydratedDocument<User>;
 
@@ -16,7 +16,7 @@ export class User {
     index: true,
     immutable: true,
   })
-  id: String;
+  id: string;
 
   @Prop({
     required: true,

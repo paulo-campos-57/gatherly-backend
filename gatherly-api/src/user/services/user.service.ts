@@ -10,10 +10,10 @@ import {
   type PasswordHasher,
 } from '../../security/hasher/password-hasher.js';
 
-import { CreateUserDTO } from '../dto/create-user.dto.js';
-import { UpdateUserDto } from '../dto/update-user.dto.js';
+import type { CreateUserDTO } from '../dto/create-user.dto.js';
+import type { UpdateUserDto } from '../dto/update-user.dto.js';
 import { UserRepository } from '../repositories/user.repository.js';
-import { UserDocument } from '../schemas/user.schema.js';
+import type { UserDocument } from '../schemas/user.schema.js';
 
 @Injectable()
 export class UserService {

@@ -15,11 +15,11 @@ import {
 } from '@nestjs/common';
 
 import { UserService } from '../services/user.service.js';
-import { CreateUserDTO } from '../dto/create-user.dto.js';
-import { UpdateUserDto } from '../dto/update-user.dto.js';
-import { SearchUserDto } from '../dto/search-user.dto.js';
+import type { CreateUserDTO } from '../dto/create-user.dto.js';
+import type { UpdateUserDto } from '../dto/update-user.dto.js';
+import type { SearchUserDto } from '../dto/search-user.dto.js';
 
-import { AuthenticatedUser } from '../../auth/types/authenticated-user.type.js';
+import type { AuthenticatedUser } from '../../auth/types/authenticated-user.type.js';
 
 import { JwtAuthGuard } from '../../auth/guards/jwt-auth.guard.js';
 

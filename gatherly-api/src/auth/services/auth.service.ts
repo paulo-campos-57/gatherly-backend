@@ -7,7 +7,7 @@ import {
   type PasswordHasher,
 } from '../../security/hasher/password-hasher.js';
 
-import { LoginDto } from '../dto/login.dto.js';
+import type { LoginDto } from '../dto/login.dto.js';
 import { UserRepository } from '../../user/repositories/user.repository.js';
 
 @Injectable()
