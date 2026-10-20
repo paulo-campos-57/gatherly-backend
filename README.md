@@ -109,6 +109,53 @@ import { makeUser } from '@test/factories/user.factory.js';
 - Relevant new business rules should have corresponding unit tests.
 - E2E tests should cover critical authentication flows and private routes.
 
+## ✅ Linting and Change Validation
+
+Every change must pass linting and automated tests before being pushed to the repository or merged into the main development branch.
+
+The project uses ESLint to check code quality, Prettier for formatting, and Vitest to run automated tests.
+
+### Required checks
+
+After making a change, run:
+
+```bash
+# Check code quality
+npm run lint
+
+# Run automated tests
+npm run test
+
+# Verify that the application compiles
+npm run build
+```
+
+If formatting changes or automatically fixable lint issues are found, run:
+
+```bash
+# Format the code
+npm run format
+
+# Apply automatic lint fixes
+npm run lint:fix
+```
+
+After applying fixes, run the required checks again. Automatic fixes may modify imports or other code, so passing linting alone does not guarantee that tests or the build will pass.
+
+### Acceptance criteria
+
+A change is ready to be pushed or merged only when:
+
+- Linting completes without errors.
+- All automated tests included in the checks pass.
+- The application builds successfully.
+- New or changed behavior has appropriate test coverage.
+- Formatting and automatic fixes have been reviewed to ensure they did not unintentionally change behavior.
+
+Do not disable rules, skip failing tests, or remove assertions solely to make the checks pass. Investigate and fix the underlying issue.
+
+When the change affects database integration, authentication, or HTTP flows, also run the relevant integration and E2E tests using the scripts configured in the project.
+
 ## 📝 Commit Convention
 
 All commit messages must strictly adhere to the following pattern:
@@ -246,6 +293,53 @@ import { makeUser } from '@test/factories/user.factory.js';
 - Testes de integração e E2E devem usar dados isolados, sem acessar o banco de desenvolvimento.
 - Novas regras de negócio relevantes devem possuir testes unitários correspondentes.
 - Testes E2E devem cobrir os fluxos críticos de autenticação e rotas privadas.
+
+## ✅ Linting e Validação de Alterações
+
+Toda alteração deve passar pelo lint e pelos testes automatizados antes de ser enviada ao repositório ou integrada à branch principal de desenvolvimento.
+
+O projeto utiliza ESLint para verificar a qualidade do código, Prettier para formatação e Vitest para executar testes automatizados.
+
+### Verificações obrigatórias
+
+Após realizar uma alteração, execute:
+
+```bash
+# Verifica a qualidade do código
+npm run lint
+
+# Executa os testes automatizados
+npm run test
+
+# Verifica se a aplicação compila
+npm run build
+```
+
+Caso seja necessário formatar o código ou corrigir problemas de lint automaticamente, execute:
+
+```bash
+# Formata o código
+npm run format
+
+# Aplica correções automáticas de lint
+npm run lint:fix
+```
+
+Depois das correções, execute novamente as verificações obrigatórias. Correções automáticas podem modificar imports ou outros trechos do código; portanto, passar no lint não garante que os testes ou o build também passarão.
+
+### Critérios de aceitação
+
+Uma alteração só está pronta para ser enviada ou integrada quando:
+
+- O lint termina sem erros.
+- Todos os testes automatizados incluídos nas verificações passam.
+- A aplicação compila com sucesso.
+- Comportamentos novos ou alterados possuem cobertura de testes adequada.
+- A formatação e as correções automáticas foram revisadas para garantir que não alteraram o comportamento involuntariamente.
+
+Não desative regras, ignore testes com falha ou remova verificações apenas para fazer as validações passarem. Investigue e corrija a causa do problema.
+
+Quando a alteração afetar integração com o banco, autenticação ou fluxos HTTP, execute também os testes de integração e E2E relevantes, usando os scripts configurados no projeto.
 
 ## 📝 Padronização de Commits
 
