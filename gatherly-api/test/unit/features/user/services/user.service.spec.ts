@@ -7,8 +7,8 @@ import {
   PASSWORD_HASHER,
   type PasswordHasher,
 } from '@/security/hasher/password-hasher.js';
-import { UserRepository } from '@/user/repositories/user.repository.js';
-import { UserService } from '@/user/services/user.service.js';
+import { UserRepository } from '@/features/user/repositories/user.repository.js';
+import { UserService } from '@/features/user/services/user.service.js';
 import { makeUser } from '@test/factories/user.factory.js';
 
 describe('UserService', () => {

@@ -1,4 +1,4 @@
-import type { UserDocument } from '@/user/schemas/user.schema.js';
+import type { UserDocument } from '@/features/user/schemas/user.schema.js';
 
 type UserFactoryOverrides = Partial<UserDocument>;
 

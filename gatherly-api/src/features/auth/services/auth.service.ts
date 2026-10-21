@@ -5,7 +5,7 @@ import { JwtService } from '@nestjs/jwt';
 import {
   PASSWORD_HASHER,
   type PasswordHasher,
-} from '../../security/hasher/password-hasher.js';
+} from '../../../security/hasher/password-hasher.js';
 
 import type { LoginDto } from '../dto/login.dto.js';
 import { UserRepository } from '../../user/repositories/user.repository.js';

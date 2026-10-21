@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import { PasswordModule } from '../security/hasher/password.module.js';
+import { PasswordModule } from '../../security/hasher/password.module.js';
 
 import { User, UserSchema } from './schemas/user.schema.js';
 import { UserRepository } from './repositories/user.repository.js';
