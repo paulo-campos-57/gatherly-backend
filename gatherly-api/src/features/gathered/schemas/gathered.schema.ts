@@ -1,11 +1,12 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Schema as MongooseSchema } from 'mongoose';
+import { HydratedDocument, Schema as MongooseSchema, Types } from 'mongoose';
 
-import { Types } from 'mongoose';
 import {
   GatheredColumn,
   GatheredColumnSchema,
 } from './gathered-column.schema.js';
+
+export type GatheredDocument = HydratedDocument<Gathered>;
 
 @Schema({
   collection: 'gathereds',
